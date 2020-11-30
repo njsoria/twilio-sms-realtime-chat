@@ -20,7 +20,7 @@ class MessageSentEvent implements ShouldBroadcast
      * @return void
      */
     public function __construct(
-      public string $message,
+      public $message,
     ){}
 
     /**
@@ -30,6 +30,14 @@ class MessageSentEvent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('channel-name');
+        return new PresenceChannel('demo');
+    }
+
+    /**
+     * JSON data to broadcast with this message
+     */
+    public function broadcastWith()
+    {
+      return $this->message->toArray();
     }
 }
