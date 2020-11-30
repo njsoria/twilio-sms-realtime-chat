@@ -1,4 +1,11 @@
 import 'alpinejs';
+import Echo from 'laravel-echo';
+import Larasocket from 'larasocket-js';
+
+window.Echo = new Echo({
+  broadcaster: Larasocket,
+  token: process.env.MIX_LARASOCKET_TOKEN,
+});
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
