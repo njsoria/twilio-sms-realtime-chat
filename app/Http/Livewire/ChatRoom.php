@@ -69,7 +69,9 @@ class ChatRoom extends Component
      */
     public function here($data)
     {
+        \Debugbar::info($this->here);
         $this->here = $data;
+        \Debugbar::alert($this->here);
     }
 
     /**
@@ -93,6 +95,8 @@ class ChatRoom extends Component
      */
     public function joining($data)
     {
+        \Debugbar::warning($this->here);
+
         $this->here[] = $data;
     }
 }
